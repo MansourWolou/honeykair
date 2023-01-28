@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'pages/welcome.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -43,20 +45,6 @@ class MyHomePage extends StatelessWidget {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return Scaffold(
-      body: Container(
-        color: Color(0xFFF8E5C5),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Image(image: AssetImage('assets/images/Logo-final.png')),
-              Text("Honey k'air", style: TextStyle(fontSize: 30,)),
-              
-            ],
-          ),
-        ),
-      ),
-    );
+    return const Welcome();
   }
 }
