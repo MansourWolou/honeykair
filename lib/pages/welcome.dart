@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './connexion.dart';
+import './inscription.dart';
 
 final ButtonStyle flatButtonStyle = TextButton.styleFrom(
   foregroundColor: Colors.blue,
@@ -41,7 +42,11 @@ class Welcome extends StatelessWidget {
                 children: [
                   TextButton(
                     style: flatButtonStyle,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const Inscription(),
+                      ));
+                    },
                     child: const Text('Inscription'),
                   )
                 ],
