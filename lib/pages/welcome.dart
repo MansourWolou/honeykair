@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './connexion.dart';
 
 final ButtonStyle flatButtonStyle = TextButton.styleFrom(
   foregroundColor: Colors.blue,
@@ -7,12 +8,13 @@ final ButtonStyle flatButtonStyle = TextButton.styleFrom(
     borderRadius: BorderRadius.all(Radius.circular(50)),
   ),
 );
+
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
 
   @override
   Widget build(BuildContext context) {
-        return Scaffold(
+    return Scaffold(
       body: Container(
         color: const Color(0xFFF8E5C5),
         child: Center(
@@ -40,7 +42,7 @@ class Welcome extends StatelessWidget {
                   TextButton(
                     style: flatButtonStyle,
                     onPressed: () {},
-                    child: Text('Inscription'),
+                    child: const Text('Inscription'),
                   )
                 ],
               ),
@@ -49,8 +51,12 @@ class Welcome extends StatelessWidget {
                 children: [
                   TextButton(
                     style: flatButtonStyle,
-                    onPressed: () {},
-                    child: Text('Connexion'),
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const Connexion(),
+                      ));
+                    },
+                    child: const Text('Connexion'),
                   )
                 ],
               ),
@@ -59,6 +65,5 @@ class Welcome extends StatelessWidget {
         ),
       ),
     );
-  
   }
 }
