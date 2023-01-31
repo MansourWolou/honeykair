@@ -31,7 +31,7 @@ class Welcome extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
-                  Text("Honey k'air",
+                  Text("Honey k'hair",
                       style: TextStyle(
                         fontSize: 30,
                       )),
