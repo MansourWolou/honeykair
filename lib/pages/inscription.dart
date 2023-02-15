@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './home.dart';
 
 final ButtonStyle flatButtonStyle = TextButton.styleFrom(
   foregroundColor: Colors.blue,
@@ -35,7 +36,9 @@ class Inscription extends StatelessWidget {
               child: TextButton(
                 style: flatButtonStyle,
                 onPressed: () {
-                  
+                  Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const Home(),
+                      ));
                 },
                 child: const Text("Continuer"),
               ),
