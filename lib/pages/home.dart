@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
+import 'serviceMain.dart';
+import 'serviceAccount.dart';
+import 'serviceAdvice.dart';
 class Home extends StatelessWidget {
   const Home({super.key});
 
@@ -21,15 +23,9 @@ class _HomStateFull extends State<HomStateFull> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-    Main(),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
+    ServiceMain(),
+    ServiceAdvice(),
+    ServiceAccount(),
   ];
 
   void _onItemTapped(int index) {
@@ -44,6 +40,7 @@ class _HomStateFull extends State<HomStateFull> {
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
+      backgroundColor: const Color(0xFFF8E5C5),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -61,6 +58,7 @@ class _HomStateFull extends State<HomStateFull> {
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.amber[800],
+        backgroundColor: const Color(0xFFF8E5C5),
         onTap: _onItemTapped,
       ),
     );

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class Main extends StatelessWidget {
-  const Main({super.key});
+class ServiceAccount extends StatelessWidget {
+  const ServiceAccount({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Center(
-        child: Text('je sais pas quoi mettre sur la home '),
+        child: Text('ACCOUNT '),
       );
   }
 }
