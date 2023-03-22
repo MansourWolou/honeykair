@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'pages/welcome.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -27,7 +26,7 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
-        fontFamily: 'lovelo',
+        fontFamily: 'loveloBlack',
       ),
       home: const MyHomePage(),
     );
