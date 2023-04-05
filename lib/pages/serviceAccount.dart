@@ -16,14 +16,9 @@ class ServiceAccount extends StatelessWidget {
                     children: const [
                       Image(
                         image: AssetImage('assets/images/Logo-final.png'),
-                        height: 100,
-                        width: 200,
-                      )
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
+                        height: 50,
+                        width: 100,
+                      ),
                       Card(
                           elevation: 0,
                           child: Text('Your account',
@@ -31,8 +26,12 @@ class ServiceAccount extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 20.0,
                                 height: 2.0,
-                              )))
+                              ))),
                     ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

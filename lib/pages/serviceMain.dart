@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class ServiceMain extends StatelessWidget {
   const ServiceMain({super.key});
@@ -43,10 +44,10 @@ class ServiceMain extends StatelessWidget {
             ])),
       ),
       Container(
-          height: MediaQuery.of(context).size.height * 0.65,
-          width: MediaQuery.of(context).size.width,
+          // height: MediaQuery.of(context).size.height * 0.65,  ---> si la page est  trop petite
+          // width: MediaQuery.of(context).size.width,
           color: Colors.white,
-          padding: EdgeInsets.only(top: 50.0),
+          padding: const EdgeInsets.only(top: 50.0, bottom: 50),
           child: Column(children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -80,18 +81,49 @@ class ServiceMain extends StatelessWidget {
                           topRight: Radius.circular(20),
                           bottomRight: Radius.circular(20),
                           bottomLeft: Radius.circular(20))),
-                  margin: EdgeInsets.only(bottom: 0, top: 5),
+                  margin: EdgeInsets.only(bottom: 0, top: 10),
                   color: Color.fromARGB(255, 248, 212, 150),
                   child: Padding(
                     padding: EdgeInsets.only(
-                        top: 24.0, bottom: 24, left: 80, right: 80),
+                        top: 24.0, bottom: 24, left: 62, right: 62),
                     child: Text('Analyse my hair profile',
                         textAlign: TextAlign.center),
                   ),
                 ),
               ],
             ),
-          ]))
+          ])),
+      Container(
+        padding:
+            const EdgeInsets.only(top: 24.0, bottom: 24, left: 10, right: 10),
+        color: Color.fromARGB(255, 255, 255, 255),
+        child: CarouselSlider(
+          options: CarouselOptions(height: 400.0),
+          items: [
+            Image.asset('assets/images/coiffeurExemple.png'),
+            Image.asset('assets/images/Logo-final.png'),
+            Image.asset('assets/images/coiffeurExemple.png'),
+            Image.asset('assets/images/Logo-final.png')
+          ].map((i) {
+            return Builder(
+              builder: (BuildContext context) {
+                return Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                    decoration: const BoxDecoration(
+                        color: Color.fromARGB(255, 248, 212, 150)),
+                    child: i);
+                // child: Text(
+                //   'text $i',
+                //   style: const TextStyle(fontSize: 16.0),
+                // ));
+              },
+            );
+          }).toList(),
+        ),
+      )
+
+      //
     ])));
   }
 }

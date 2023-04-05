@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import './home.dart';
 
 final ButtonStyle flatButtonStyle = TextButton.styleFrom(
-  foregroundColor: Colors.blue,
+  foregroundColor: const Color.fromARGB(255, 0, 0, 0),
   backgroundColor: Colors.orange,
   shape: const RoundedRectangleBorder(
     borderRadius: BorderRadius.all(Radius.circular(50)),
@@ -37,8 +37,8 @@ class Inscription extends StatelessWidget {
                 style: flatButtonStyle,
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const Home(),
-                      ));
+                    builder: (context) => const Home(),
+                  ));
                 },
                 child: const Text("Continuer"),
               ),
