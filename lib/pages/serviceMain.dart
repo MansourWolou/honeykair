@@ -63,7 +63,7 @@ class ServiceMain extends StatelessWidget {
                   color: Color.fromARGB(255, 248, 212, 150),
                   child: Padding(
                     padding: EdgeInsets.only(
-                        top: 24.0, bottom: 24, left: 48, right: 48),
+                        top: 24.0, bottom: 24, left: 18, right: 18),
                     child: Text(
                         'petit texte de présentation \n trop cool de ouf !',
                         textAlign: TextAlign.center),
@@ -85,7 +85,7 @@ class ServiceMain extends StatelessWidget {
                   color: Color.fromARGB(255, 248, 212, 150),
                   child: Padding(
                     padding: EdgeInsets.only(
-                        top: 24.0, bottom: 24, left: 62, right: 62),
+                        top: 24.0, bottom: 24, left: 32, right: 32),
                     child: Text('Analyse my hair profile',
                         textAlign: TextAlign.center),
                   ),
@@ -96,7 +96,7 @@ class ServiceMain extends StatelessWidget {
       Container(
         padding:
             const EdgeInsets.only(top: 24.0, bottom: 24, left: 10, right: 10),
-        color: Color.fromARGB(255, 255, 255, 255),
+        color: const Color.fromARGB(255, 255, 255, 255),
         child: CarouselSlider(
           options: CarouselOptions(height: 400.0),
           items: [
@@ -113,10 +113,6 @@ class ServiceMain extends StatelessWidget {
                     decoration: const BoxDecoration(
                         color: Color.fromARGB(255, 248, 212, 150)),
                     child: i);
-                // child: Text(
-                //   'text $i',
-                //   style: const TextStyle(fontSize: 16.0),
-                // ));
               },
             );
           }).toList(),
