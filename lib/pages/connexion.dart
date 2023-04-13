@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import './home.dart';
+import '../api.dart';
+
+final  api = Api();
 
 final ButtonStyle flatButtonStyle = TextButton.styleFrom(
   foregroundColor: const Color.fromARGB(255, 0, 0, 0),
@@ -33,6 +36,7 @@ class Connexion extends StatelessWidget {
               child: TextButton(
                 style: flatButtonStyle,
                 onPressed: () {
+                  api.request();
                   Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => const Home(),
                   ));
