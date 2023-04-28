@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './../botpress.dart';
 
 class ServiceAdvice extends StatefulWidget {
   const ServiceAdvice({super.key});
@@ -10,8 +11,6 @@ class ServiceAdvice extends StatefulWidget {
 class _ServiceAdviceState extends State<ServiceAdvice> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-        child: Text('ADVICE'),
-      );
+    return const Chatbot(title: "chatBot");
   }
 }
