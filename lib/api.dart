@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dio/dio.dart';
 
 class Api {
@@ -32,6 +30,22 @@ class Api {
     Response response;
     response = await dio.post('/api/v1/auth/register',
         data: {"name": username, "email": email, "password": pwd});
+    Map<String, dynamic> val = response.data;
+
+    return val["token"];
+  }
+
+  Future<Object> registerObj(String username, String email, String pwd) async {
+    Response response;
+    response = await dio.post('/api/v1/auth/register',
+        data: {"name": username, "email": email, "password": pwd});
+    return response.data;
+  }
+
+  Future<String> login(String email, String pwd) async {
+    Response response;
+    response = await dio.post('/api/v1/auth/authenticate',
+        data: {"email": email, "password": pwd});
     Map<String, dynamic> val = response.data;
 
     return val["token"];
