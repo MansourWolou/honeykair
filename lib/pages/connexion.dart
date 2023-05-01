@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import './home.dart';
 import '../api.dart';
 
-final  api = Api();
-
 final ButtonStyle flatButtonStyle = TextButton.styleFrom(
   foregroundColor: const Color.fromARGB(255, 0, 0, 0),
   backgroundColor: Colors.orange,
@@ -13,9 +11,16 @@ final ButtonStyle flatButtonStyle = TextButton.styleFrom(
   //padding: const EdgeInsets.all(100)
 );
 
-class Connexion extends StatelessWidget {
+class Connexion extends StatefulWidget {
   const Connexion({super.key});
 
+  @override
+  State<Connexion> createState() => _ConnexionState();
+}
+
+class _ConnexionState extends State<Connexion> {
+  TextEditingController controller1 = TextEditingController();
+  TextEditingController controller2 = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,21 +30,20 @@ class Connexion extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.fromLTRB(20, 200, 20, 0),
           children: <Widget>[
-            const TextField(
-              decoration: InputDecoration(labelText: 'Email'),
+            TextField(
+              decoration: const InputDecoration(labelText: 'Email'),
+              controller: controller1,
             ),
-            TextFormField(
+            TextField(
               decoration: const InputDecoration(labelText: 'Mot de passe '),
+              controller: controller2,
             ),
             Container(
               padding: const EdgeInsets.fromLTRB(0, 80, 0, 0),
               child: TextButton(
                 style: flatButtonStyle,
                 onPressed: () {
-                  api.request();
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const Home(),
-                  ));
+                  auth(controller1.text, controller2.text);
                 },
                 child: const Text("Continuer"),
               ),
@@ -48,5 +52,22 @@ class Connexion extends StatelessWidget {
         ),
       ),
     ));
+  }
+
+    Future<void> auth(String mail, String pwd) async {
+    Api api = Api();
+    String res = await api.login(mail, pwd);
+    if (res == 'user Already exist ') {
+      print("pop a dialog to say it");
+      
+      const AlertDialog(
+        title: Text("error"),
+        content: Text("user already exist"),
+      );
+    } else {
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => const Home(),
+      ));
+    }
   }
 }
