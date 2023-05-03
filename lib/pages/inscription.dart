@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:honey/api.dart';
+import './../main.dart';
 import './home.dart';
 
 final ButtonStyle flatButtonStyle = TextButton.styleFrom(
@@ -10,8 +12,18 @@ final ButtonStyle flatButtonStyle = TextButton.styleFrom(
   //padding: const EdgeInsets.all(100)
 );
 
-class Inscription extends StatelessWidget {
+class Inscription extends StatefulWidget {
   const Inscription({super.key});
+
+  @override
+  State<Inscription> createState() => _InscriptionState();
+}
+
+class _InscriptionState extends State<Inscription> {
+
+  TextEditingController controller1 = TextEditingController();
+  TextEditingController controller2 = TextEditingController();
+  TextEditingController controller3 = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -22,23 +34,24 @@ class Inscription extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.fromLTRB(20, 200, 20, 0),
           children: <Widget>[
-            const TextField(
-              decoration: InputDecoration(labelText: 'Username'),
+            TextField(
+              decoration: const InputDecoration(labelText: 'Username'),
+              controller: controller1,
             ),
-            TextFormField(
+            TextField(
               decoration: const InputDecoration(labelText: 'email '),
+              controller: controller2,
             ),
-            TextFormField(
+            TextField(
               decoration: const InputDecoration(labelText: 'Mot de passe'),
+              controller: controller3,
             ),
             Container(
               padding: const EdgeInsets.fromLTRB(0, 80, 0, 0),
               child: TextButton(
                 style: flatButtonStyle,
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const Home(),
-                  ));
+                  auth( controller1.text, controller2.text, controller3.text,context);
                 },
                 child: const Text("Continuer"),
               ),
@@ -47,5 +60,22 @@ class Inscription extends StatelessWidget {
         ),
       ),
     ));
+  }
+
+  Future<void> auth(String usr, String name, String pwd,BuildContext context) async {
+    Api api = Api();
+    String res = await api.register(usr, name, pwd);
+    if (res == 'user Already exist ') {
+      print("pop a dialog to say it");
+      
+      const AlertDialog(
+        title: Text("error"),
+        content: Text("user already exist"),
+      );
+    } else {
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => const Home(),
+      ));
+    }
   }
 }
